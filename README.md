@@ -15,10 +15,10 @@ go is a general purpose language
 
 
 # advantages of Golang
-1. fast
+1. fast, promotes click code 
 
 
-#creating variables and dataTypes
+# creating variables and dataTypes
 //strings >>
 
  var firstName string = "mario"  >> specifying datatype
@@ -115,6 +115,7 @@ sort eg. ages := []int{20,30,50.60,90}
     fmt.Printf("the index %v and the values is %v ", index, value) // index is 0 and value is Tobby
  }
 
+# For Range
  eg. if we do not want the value or index we replace with an underscore else we get an error
   for _,value := range names{
      fmt.Printf('the value is %v',value)
@@ -136,7 +137,7 @@ if num < 44 {
 }
 
 
-# functions
+# Functions
 keyword: func
 arguments passed in need to be described 
 in the paranthesis we specify the datatype of the argument/parameter the function is expecting
@@ -152,6 +153,7 @@ eg. multiple args
     }
 
 //When returnming a value we need to specify what type of value we returning 
+
 this is after the paranthesis  and before the curly braces "int" has been added for the second time outside the paranthesis to indicate that we will be returning an interger
 eg
     func sum (a int , b int) int{
@@ -170,3 +172,104 @@ func add_sub (n [] int)(int, int){
 
 
 # Package scope
+We can link two different files by specifying the same package
+package main => in two files means that we create a varible/function in one file and use it in another file
+note: we can only access the variable that are not function scoped 
+
+# Maps
+>> similar representation for objects in go
+>> in the square bracket we specify the type of key and after we specify the type of value
+>> below we have key type of string and values type of floats
+
+eg. menu := map[string]float64{  
+     "Soup": 4.90,
+     "Pie":  4.99
+    },
+
+eg. menu := map[int]string{
+      2332434:"john",
+      7366738:"marry"
+    }
+
+// we can access the data in the maps
+eg. meny[23324]  // john
+eg. meny[23324] = "Todd" //modifies the key's value
+
+//we can also iterate through maps, using a for range we get the key "k" and value of the keys "v"
+ for i,v := range menu {
+   fmt.Println(k,"-",v) // 2333 - "john"
+ }
+
+//how it is passed as a parameter in a function
+func updateValue (y map[string]float64){ //code}
+
+
+
+# By Pass value
+-Go is a by-passed value language , meaning it makes copies of values when passed into functions
+-When passing down a variable as a parameter in a function and attemtping to modify the variable , we only modify the copy and not the original variable
+-the solution would be to return a value
+
+# Dividing the types
+groupA non Pointer types --> strings , ints , bools , arrays , floats, structs
+groupB pointer wrapper values types --> function , maps , slices
+
+
+# Pointers
+We use the ampersin "&" to retrieve the pointer of a variable , this is usefull because we cannot modify the original variable but only the copy when it is passed in the function
+We can use star "*" to retrieve the value of a pointer
+eg. 
+  name := "teddy"
+  m := &name
+
+  fmt.Println("pointer location: ",m) // pointer holding the value from name
+  fmt.Println("pointer location value: ",*m) //retrieve the value of the pointer
+
+  updatePointer(m)
+
+//Passing pointer into function to update original data within functions
+  we use the star to tell the function to expect a pointer with location addres
+
+  func updatePointer (x *string){
+    *x = "name"
+  }
+
+//note: so now what happens is we get the pointer location and store it in "m" , m originally has its own pointer location 
+but the value is the pointer of the name we need to update , so we set up the parameter of the function to accept a pointer as an argument than pass it in and when the function is called we will update the copy created by the function aswell as the original variable
+
+
+# Structs & custom Types
+//structs are like blue prints or a schema to follow when creating data [object]
+by using the type and struct keywords we can create a map that has multiple datatypes 
+
+eg. type and struct are keywords required , we do not add comma when creating the struct , only when assigning values
+
+    type people struct{
+        name string 
+        items map[string]float64
+        tip float64
+    }
+   
+    func addPeople (name string) people{
+        b := people{
+          name : name, //passed as a parameter
+          items: map[string]float64,
+          tip:0
+        }
+        
+        return b
+    }
+    
+
+# Receiver functions
+>> receiver functions allows us to take in data into the function inorder to create a method
+  eg. the first parathensis which receives the people struct and makes it a method for the people struct
+   n is a variable , people is the struct we pass in , n becomes the variable that holds the struct data
+
+        func (n people) format() string{
+           //code...
+           n.items // to access the data in the struct
+           return val
+        } 
+
+        people.format() //we than call the method 
