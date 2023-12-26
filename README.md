@@ -27,6 +27,7 @@ go is a general purpose language
  name := "mario" >> it is only used the first time when creating and assigning , cannot be used outside a function
 
 //number >>  
+
 var age int = 30
 var age int
 age:= 30
@@ -77,11 +78,12 @@ names = append(names,40)
 fmt.Println(names, len(names)) // [20,30,40] , 3
 
 //slice ranges 
-var ages = [] int{20,30,40,50}
-rangeOne := ages[1:3] >> this extract data from position 1 inclusive to position 3 exclusive
-rangeTwo := names[2:] >> this will extract everything from position 2 to the end of the slice
-rangeTwo := names[:3] >> this will extract everything from start and finish to pos 3 , it will not include position 3
-fmt.Println(rangeOne) // [30,40]  output for ages, note that we exclude position 3
+
+      var ages = [] int{20,30,40,50}
+      rangeOne := ages[1:3] >> this extract data from position 1 inclusive to position 3 exclusive
+      rangeTwo := names[2:] >> this will extract everything from position 2 to the end of the slice
+      rangeTwo := names[:3] >> this will extract everything from start and finish to pos 3 , it will not include position 3
+      fmt.Println(rangeOne) // [30,40]  output for ages, note that we exclude position 3
 
 
 # standard Library :https://golang.org/pkg/
@@ -105,21 +107,25 @@ sort eg. ages := []int{20,30,50.60,90}
 # Loops 
 >>used to iterate through an array or a slice 
  eg. method 1  
- names := []string{"Tobby","Andy","Carl","Bettany"}
- for z:=0; z<len(names); z++ {
-    fmt.Println("current value is: ", names[z]) // tobby / Andy / Carl / Bettany
- }
- eg. method 2 : using range
- names := []string{"Tobby","Andy","Carl","Bettany"}
- for index, value := range names{
-    fmt.Printf("the index %v and the values is %v ", index, value) // index is 0 and value is Tobby
- }
 
-# For Range
+      names := []string{"Tobby","Andy","Carl","Bettany"}
+      for z:=0; z<len(names); z++ {
+          fmt.Println("current value is: ", names[z]) // tobby / Andy / Carl / Bettany
+      }
+ eg. method 2 : using range
+
+    names := []string{"Tobby","Andy","Carl","Bettany"}
+
+    for index, value := range names{
+        fmt.Printf("the index %v and the values is %v ", index, value) // index is 0 and value is Tobby
+    }
+
+# For Range loop : excluding values 
  eg. if we do not want the value or index we replace with an underscore else we get an error
-  for _,value := range names{
-     fmt.Printf('the value is %v',value)
-  }
+
+    for _,value := range names{
+      fmt.Printf('the value is %v',value)
+    }
 
 //we can use keywords eg. continue , break
 continue >> skips the current iteration and continues
@@ -127,14 +133,15 @@ break >> stops the iteration completely
 
 
 # Booleans and conditionals
-num := 44
-if num < 44 {
- //code here
-}else if num < 55{
-  //code here  
-}else{
-  //code here  
-}
+
+    num := 44
+    if num < 44 {
+    //code here
+    }else if num < 55{
+      //code here  
+    }else{
+      //code here  
+    }
 
 
 # Functions
@@ -143,11 +150,13 @@ arguments passed in need to be described
 in the paranthesis we specify the datatype of the argument/parameter the function is expecting
 
 eg. one args type string
+
     func greet (n string){  
       // code here
     }
 
 eg. multiple args
+    
     func colors (a string , b [] int, c int , d func(string)){
 
     }
@@ -156,19 +165,20 @@ eg. multiple args
 
 this is after the paranthesis  and before the curly braces "int" has been added for the second time outside the paranthesis to indicate that we will be returning an interger
 eg
-    func sum (a int , b int) int{
-      return a + b
-    }
+
+      func sum (a int , b int) int{
+        return a + b
+      }
 
 //Returning multiple values in a function 
  we add another paranthesison the right and add types we return , these are separated by commas
 func add_sub (n [] int)(int, int){
 
-  for ...{
-    ...
-  }
-  return val1 ,val2  
-}
+    for ...{
+        ...
+      }
+      return val1 ,val2  
+    }
 
 
 # Package scope
@@ -181,28 +191,32 @@ note: we can only access the variable that are not function scoped
 >> in the square bracket we specify the type of key and after we specify the type of value
 >> below we have key type of string and values type of floats
 
-eg. menu := map[string]float64{  
-     "Soup": 4.90,
-     "Pie":  4.99
-    },
+eg.
 
-eg. menu := map[int]string{
-      2332434:"john",
-      7366738:"marry"
-    }
+        menu := map[string]float64{  
+          "Soup": 4.90,
+          "Pie":  4.99
+        }
+
+eg.
+       
+        menu := map[int]string{
+          2332434:"john",
+          7366738:"marry"
+        }
 
 // we can access the data in the maps
 eg. meny[23324]  // john
 eg. meny[23324] = "Todd" //modifies the key's value
 
 //we can also iterate through maps, using a for range we get the key "k" and value of the keys "v"
- for i,v := range menu {
-   fmt.Println(k,"-",v) // 2333 - "john"
- }
+
+     for i,v := range menu {
+        fmt.Println(k,"-",v) // 2333 - "john"
+     }
 
 //how it is passed as a parameter in a function
 func updateValue (y map[string]float64){ //code}
-
 
 
 # By Pass value
@@ -219,20 +233,21 @@ groupB pointer wrapper values types --> function , maps , slices
 We use the ampersin "&" to retrieve the pointer of a variable , this is usefull because we cannot modify the original variable but only the copy when it is passed in the function
 We can use star "*" to retrieve the value of a pointer
 eg. 
-  name := "teddy"
-  m := &name
+ 
+     name := "teddy"
+     m := &name
 
   fmt.Println("pointer location: ",m) // pointer holding the value from name
   fmt.Println("pointer location value: ",*m) //retrieve the value of the pointer
 
-  updatePointer(m)
+    updatePointer(m)
 
 //Passing pointer into function to update original data within functions
   we use the star to tell the function to expect a pointer with location addres
 
-  func updatePointer (x *string){
-    *x = "name"
-  }
+     func updatePointer (x *string){
+       *x = "name"
+     }
 
 //note: so now what happens is we get the pointer location and store it in "m" , m originally has its own pointer location 
 but the value is the pointer of the name we need to update , so we set up the parameter of the function to accept a pointer as an argument than pass it in and when the function is called we will update the copy created by the function aswell as the original variable
@@ -273,3 +288,6 @@ eg. type and struct are keywords required , we do not add comma when creating th
         } 
 
         people.format() //we than call the method 
+
+
+        
