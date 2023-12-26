@@ -1,7 +1,7 @@
 # Go_tuts
 Golang tutorial
 
-#install Golang
+# install Golang
 -head golang.org
 -head to downloads/ download your preffered type
 -open terminal and type "Go" , should see files related to Golang
@@ -14,7 +14,7 @@ go is a general purpose language
 
 
 
-#advantages of Golang
+# advantages of Golang
 1. fast
 
 
@@ -38,7 +38,7 @@ var score float64 = 25344434455454.95 >> adding floats/numbers with decimals thi
 score := 1.5 >> go reads and understands that this a float
 
 
-#fmt > module used for formatting and printing strings
+# fmt > module used for formatting and printing strings
 
 1.Println() : logs data and prints a new line
 eg. fmt.Println()
@@ -58,7 +58,7 @@ D>> fmt.printf(my age is %f", age )  >> replaces the specifier with the variable
 
 
 
-#Arrays and slices
+# Arrays and slices
 
 1.create an Array
 var arr [3] int = [3]int{20, 30, 40 }  >> var =>  keyword ,arr => variable name , [3] => the amount of items that will be in , int => the data type
@@ -84,7 +84,7 @@ rangeTwo := names[:3] >> this will extract everything from start and finish to p
 fmt.Println(rangeOne) // [30,40]  output for ages, note that we exclude position 3
 
 
-#standard Library :https://golang.org/pkg/
+# standard Library :https://golang.org/pkg/
 packages that allows us to add methods to manipulate data
 eg.fmt, strings , sort
 
@@ -102,7 +102,7 @@ sort eg. ages := []int{20,30,50.60,90}
 >> Strings >> this method is used to sort strings alphabetically eg. sort.Strings(names) // ["andy","Betty","carl"]
 >> SearchStrings >> this method allos us to search for a word in an array of strings eg.sort.SearchStrings()
 
-#Loops 
+# Loops 
 >>used to iterate through an array or a slice 
  eg. method 1  
  names := []string{"Tobby","Andy","Carl","Bettany"}
@@ -125,7 +125,7 @@ continue >> skips the current iteration and continues
 break >> stops the iteration completely
 
 
-#Booleans and conditionals
+# Booleans and conditionals
 num := 44
 if num < 44 {
  //code here
@@ -136,7 +136,7 @@ if num < 44 {
 }
 
 
-#functions
+# functions
 keyword: func
 arguments passed in need to be described 
 in the paranthesis we specify the datatype of the argument/parameter the function is expecting
@@ -169,4 +169,4 @@ func add_sub (n [] int)(int, int){
 }
 
 
-#Package scope
+# Package scope
