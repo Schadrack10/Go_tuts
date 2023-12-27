@@ -22,7 +22,7 @@ One of Go's standout features is its built-in support for concurrent programming
 # Efficient Compilation and Execution:
 Go is known for its fast compilation times and the creation of statically linked binaries. The language's simplicity contributes to quick development cycles, and the resulting binaries are standalone and efficient, with no external runtime dependencies. This makes deployment straightforward and contributes to high-performance execution.
 
-#Simplicity and Readability:
+# Simplicity and Readability:
 Go's syntax is intentionally simple and easy to read. It lacks some of the complexity found in other languages, which can lead to more straightforward code. The language's design encourages clean and idiomatic code, making it easier for developers to understand and maintain. This simplicity also aids in onboarding new developers to a codebase.
 
 
