@@ -1,5 +1,5 @@
-# Go_tuts
-Golang tutorial
+# Golang tuts
+
 
 # install Golang
 -head golang.org
@@ -290,4 +290,144 @@ eg. type and struct are keywords required , we do not add comma when creating th
         people.format() //we than call the method 
 
 
-        
+# Receiver functions with Pointers
+>>>  we can update struct data by passing pointer in receiver functions  , we pass the pointer in the struct itself , with receiver functions Go will understand that it needs to update the struct data and we just simply add the star on bill parameter passed as the receiver 
+
+        func (b *bill) updateTip (tip float64){
+          //(*b).tip = tip // here we de-reference the struct, but we don not need to do these go is samrt enought to know that we pass ina pointer
+          b.tip = tip
+        }      
+
+//main.go 
+
+      package main
+
+      import "fmt"
+
+      func main() {
+        myBill := createNewBill("Shakes's bill")
+        myBill.updateTip(10)
+        myBill.addItems("chocolate",3.15)
+
+        fmt.Println("created new bill: ", myBill.format())
+        // fmt.Println("new bill: ", myBill)
+
+        //  myOrder := createOrder("New christams order")
+        //  fmt.Println("your order is ready: ", myOrder)
+        //  fmt.Println(myOrder.formatOrder())
+
+      }
+
+//Bill.go
+
+      package main
+
+      import "fmt"
+
+      type bill struct {
+        name  string
+        items map[string]float64
+        tip   float64
+      }
+
+      func createNewBill(name string) bill {
+        b := bill{
+          name:  name,
+          items: map[string]float64{"pie": 5.99, "cake": 3.99},
+          tip:   0,
+        }
+
+        return b
+      }
+
+      // format bill function
+      func (b bill) format() string {
+        fs := "Bill Breakdown: \n"
+        var total float64 = 0
+
+        //list items
+        for k, val := range b.items {
+          fs += fmt.Sprintf("%-25v ...$%v \n", k+":", val)
+          total += val
+        }
+
+        // add tip 
+        fs += fmt.Sprintf("%-25v ...$%v \n", "tip:", b.tip)
+
+
+        //total
+        fs += fmt.Sprintf("%-25v ...$%0.2f", "total:", total + b.tip)
+
+        return fs
+      }
+
+      //update
+      func (b *bill) updateTip (tip float64){
+        //(*b).tip = tip // here we de-reference the struct, but we don not need to do these go is samrt enought to know that we pass ina pointer
+        b.tip = tip
+      }  
+
+      //add an item to the bill
+      func (b *bill) addItems(name string , price float64){
+        b.items[name] =  price
+      }
+
+
+//order.go >> my own created file for testing
+
+     
+     package main
+
+     import "fmt"
+
+      type order struct {
+        orderId        int
+        orderItems     map[string]float64
+        orderReference string
+      }
+
+     func createOrder(ref string) order {
+      newOrder := order{
+        orderId:        123764783,
+        orderItems:     map[string]float64{"Brown Bread": 23.60, "Nike shoes": 50.66},
+        orderReference: ref,
+      }
+
+	     return newOrder
+    }
+
+    func (o order) formatOrder() string {
+
+      var text string = ""
+
+      for k, v := range o.orderItems {
+        text += fmt.Sprintf("%-25v R%v \n", k, v)
+      }
+
+      return text
+    }
+
+
+
+# User Input
+>>> this functionality allows golang to retrieve user input from the terminal 
+>>> import "bufio" and "os" modules which will allow us to use the functionality
+>>>  1. reader := bufio.NewReader(os.Stdin) //initialize the input functionality
+>>>  2. input, err := reader.ReadString('\n') // after reading we get back the message and error
+>>>  3. strings.TrimSpace(input) // this is removing the white space from the user input
+eg.
+
+    import (
+      "bufio"
+      "os"
+      "strings"
+    )
+
+    func test()(string , error){
+      	reader := bufio.NewReader(os.Stdin) //initialize the input functionality
+        input, err := reader.ReadString('\n') // after reading we get back the message and error
+
+        return strings.TrimSpace(input), err
+    }
+
+
