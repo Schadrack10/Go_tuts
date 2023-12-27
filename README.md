@@ -37,15 +37,15 @@ Go's syntax is intentionally simple and easy to read. It lacks some of the compl
 
 //number >>  
 
-var age int = 30
-var age int
-age:= 30
-var age int8 = 5 >> specifying the amounts of bits and memory
-var age uint = 4 >> this ensures that we do not assign a negative number
-var age uint8 = 255 >> we can add bits to unit , since we do not add negative numbers we can go up to higher numbers
-var score float32 = 25.95 >> adding floats/numbers with decimals
-var score float64 = 25344434455454.95 >> adding floats/numbers with decimals this has a larger range of number
-score := 1.5 >> go reads and understands that this a float
+    var age int = 30
+    var age int
+    age:= 30
+    var age int8 = 5 >> specifying the amounts of bits and memory
+    var age uint = 4 >> this ensures that we do not assign a negative number
+    var age uint8 = 255 >> we can add bits to unit , since we do not add negative numbers we can go up to higher numbers
+    var score float32 = 25.95 >> adding floats/numbers with decimals
+    var score float64 = 25344434455454.95 >> adding floats/numbers with decimals this has a larger range of number
+    score := 1.5 >> go reads and understands that this a float
 
 
 # fmt > module used for formatting and printing strings
@@ -79,12 +79,14 @@ ages[0] >> retreive data within a slice or an array with bracket notation
 len(name_of_array)
 
 //create a slice 
-var ages = [] int{"","",""} >> when we do not place the amount of values to be added , we create a slice automatically
+
+      var ages = [] int{"","",""} >> when we do not place the amount of values to be added , we create a slice automatically
 
 //we can add into a slice but not an array , with the append function, this function returms a new slice so we need to update the value of the slice
-var names = [] int{20,30}
-names = append(names,40)
-fmt.Println(names, len(names)) // [20,30,40] , 3
+
+      var names = [] int{20,30}
+      names = append(names,40)
+      fmt.Println(names, len(names)) // [20,30,40] , 3
 
 //slice ranges 
 
