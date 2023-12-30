@@ -422,7 +422,7 @@ eg. type and struct are keywords required , we do not add comma when creating th
 
 # User Input
 >>> this functionality allows golang to retrieve user input from the terminal 
->>> import "bufio" and "os" modules which will allow us to use the functionality
+>>> import <b>"bufio"</b> and "os" modules which will allow us to use the functionality
 >>>  1. reader := bufio.NewReader(os.Stdin) //initialize the input functionality
 >>>  2. input, err := reader.ReadString('\n') // after reading we get back the message and error
 >>>  3. strings.TrimSpace(input) // this is removing the white space from the user input
