@@ -422,7 +422,7 @@ eg. type and struct are keywords required , we do not add comma when creating th
 
 # User Input
 >>> this functionality allows golang to retrieve user input from the terminal 
->>> import <b>"bufio"</b> and <b>"os"</b> modules which will allow us to use the functionality
+>>> import "bufio" and "os" modules which will allow us to use the functionality
 >>>  1. reader := bufio.NewReader(os.Stdin) //initialize the input functionality
 >>>  2. input, err := reader.ReadString('\n') // after reading we get back the message and error
 >>>  3. strings.TrimSpace(input) // this is removing the white space from the user input
@@ -441,4 +441,99 @@ eg.
         return strings.TrimSpace(input), err
     }
 
+# Switch statements 
+>> switch statement is a function that allows us to work with different possiblity based on cases 
+>> similar to how we would use switch in javascript
+    	switch opt {
+          case "a":
+            fmt.Println("chose a")
+          case "t":
+            fmt.Println(tip)
+          case "s":
+            fmt.Println("Saving Bill...")
+          case "c" :
+            fmt.Println("the current bill",b)
+          default:
+            fmt.Println("That was not a valid option")
+      }
 
+
+# Parsing floats or other datatypes
+>> converting stringified numbers into a float(decimal)
+>> we use a package from the standard library called <b>strconv</b>
+>> from the library we import the function and use the method ParseFloat
+>> this method returns multipla values , onsuccess result and error
+
+eg.
+
+    import ("strconv")
+    var numStr =  "3.44"
+    floatNum,err := strcon.ParseFloat(numStr,64)
+
+# Saving files
+>> We saving files we need to save them in bytes format 
+>> We need to import the os library  from the standard library
+>> data is saved as a slice of bytes
+>> we than call the os.writefile method ,which has 3 params , 
+1. the file where we save it / followed by the name of the files
+2. the data we will be saving into the file 
+1. the permission code [0644]
+>> the method returns an error , if there is an error we call a panic function which stops the entire proccess
+>> if there are no errors we continue with the process and done we should have data crea
+
+        func (b *bill) saveBill(){
+          data := []byte(b.format())
+
+          err := os.WriteFile("bills/"+b.name+".txt",data,0644)
+
+          if err !=  nil {
+          panic(err)
+          }
+
+          fmt.Println("Bill was saved to file")
+        }
+
+# Interfaces
+>> interface groups types together based on their methods
+
+    type shape interface{
+      area() float64
+      circumf() float64
+    }
+
+    type square struct{
+      lenght float64
+    }
+
+    type circle struct{
+      radius float64
+    }
+
+
+    //square methos
+    func (s square) area()float64{
+      return s.length * s.length
+    }
+    
+    func (s square) circumf() float64{
+      return s.lenght * 4
+    }
+
+    // circle methods
+    func (c circle) area()float64{
+      return  math.Pi * c.radius * c.radius
+    }
+    
+    func (c circle) circumf() float64{
+      return 2 * math.Pi * c.radius
+    }
+
+    //use a method with the interface
+    func printShapeInfo(s shape){ 
+      fm.Prntln("are of %T is: %0.2f \n",s,s.area())
+      fm.Prntln("circumference of %T is: %0.2f \n",s,s.circumf())
+    }
+
+    func main (){
+      //ready 
+    }
