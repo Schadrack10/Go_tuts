@@ -25,7 +25,9 @@ Go is known for its fast compilation times and the creation of statically linked
 # Simplicity and Readability:
 Go's syntax is intentionally simple and easy to read. It lacks some of the complexity found in other languages, which can lead to more straightforward code. The language's design encourages clean and idiomatic code, making it easier for developers to understand and maintain. This simplicity also aids in onboarding new developers to a codebase.
 
-
+# Garbage collection & Dellocating memeory
+ memory management is handled automatically by a garbage collector. The garbage collector (GC) is responsible for identifying and reclaiming memory that is no 
+ longer in use by the program, preventing memory leaks and making memory management more convenient for developers.
 
 # creating variables and dataTypes
 //strings >>
@@ -67,6 +69,18 @@ D>> fmt.printf(my age is %f", age )  >> replaces the specifier with the variable
     var str =  fmt.Sprintf("my age is %v and my name is %v", age , name) >> string stored in variable
 
 
+# Type conversion
+
+ if we attempt to assign y variable it will throw an error regardless of the variales being the same types , this is because we have different integer types
+ of different sizes
+
+	 var x int32 = 1
+	 var y int16 = 2
+	 x = y 
+  
+ inorder to  have this working we need to use type converter <b>int32()</b>: the function will convert the type to an int32 hence giving them same value
+
+	x = int32(y)
 
 # Arrays and slices
 
