@@ -25,7 +25,7 @@ Go is known for its fast compilation times and the creation of statically linked
 # Simplicity and Readability:
 Go's syntax is intentionally simple and easy to read. It lacks some of the complexity found in other languages, which can lead to more straightforward code. The language's design encourages clean and idiomatic code, making it easier for developers to understand and maintain. This simplicity also aids in onboarding new developers to a codebase.
 
-# Garbage collection & Dellocating memeory
+# Garbage collection & Dellocating memory
  memory management is handled automatically by a garbage collector. The garbage collector (GC) is responsible for identifying and reclaiming memory that is no 
  longer in use by the program, preventing memory leaks and making memory management more convenient for developers.
 
@@ -82,6 +82,62 @@ D>> fmt.printf(my age is %f", age )  >> replaces the specifier with the variable
 
 	x = int32(y)
 
+
+# strconv package 
+allows us to convert the string to a different datatype
+
+1.converting from string to integer using Atoi , this will return two values , the returned value and the error  val,err := strconv(variableName)
+
+    package main
+    
+    import (
+        "fmt"
+	"strconv"
+	)
+	
+    func main() {
+        // Example string containing an integer
+        str := "123"
+
+	// Using Atoi to convert the string to an integer
+	if intValue, err := strconv.Atoi(str); err == nil {
+		fmt.Println("Integer Value:", intValue)
+	} else {
+		fmt.Println("Error:", err)
+	}
+
+	// Example with a non-integer string
+	nonIntStr := "abc"
+	if intValue, err := strconv.Atoi(nonIntStr); err == nil {
+		fmt.Println("Integer Value:", intValue)
+	} else {
+		fmt.Println("Error:", err)
+	}
+     }
+     
+1.converting from integer to string using Itoa ,unlike Atoi , the Itoa function does not return multiple values , so we imidiately assign the converted value to
+  a string 
+
+	package main
+	
+	import (
+		"fmt"
+		"strconv"
+	)
+	
+	func main() {
+		// Example integer
+		intValue := 123
+	
+		// Using Itoa to convert the integer to a string
+		str := strconv.Itoa(intValue)
+	
+		// Printing the result
+		fmt.Println("String Value:", str)
+	}
+
+ 
+
 # Arrays and slices
 
 1.create an Array
@@ -117,6 +173,7 @@ eg.fmt, strings , sort
 
 strings  eg. greet:= "Hello world!!"
 >> Contains >> search for a word in a string eg. strings.Contains(greet,"hello")
+>> TrimSpace >> removes spaces around the string eg. strings.TrimSpace(greet)
 >> ReplaceAll >> replace a word in a string  eg. strings.ReplaceAll(greet,"hello","Hii")
 >> ToUpper >> converts the string to upperCase eg. strings.ToUpper(greet)
 >> ToLower >> converts the strings to small case eg. strings.ToLower(greet)
