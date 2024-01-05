@@ -137,7 +137,30 @@ allows us to convert the string to a different datatype
 	}
 
  
+# Constants
 
+In golang we use Constants to let the program know our values are expressions whose values are know at compile time
+basically letting the program understand the values you set up for the variables defined in the paranthesis
+
+	const (
+	  y = 4
+	  z = "Hello"
+	)
+
+Iota is a function used to construct a function , basically a constructor
+the iota will automatically assing to the other variable within the constant
+
+	   type grade int
+	    const (
+               A grades = itota
+               B
+               C
+	    )
+
+
+# Control flow
+ the order in which statemnets are executed within a program
+  
 # Arrays and slices
 
 1.create an Array
@@ -515,19 +538,31 @@ eg.
 # Switch statements 
 >> switch statement is a function that allows us to work with different possiblity based on cases 
 >> similar to how we would use switch in javascript
-    	switch opt {
-          case "a":
-            fmt.Println("chose a")
-          case "t":
-            fmt.Println(tip)
-          case "s":
-            fmt.Println("Saving Bill...")
-          case "c" :
-            fmt.Println("the current bill",b)
-          default:
-            fmt.Println("That was not a valid option")
-      }
+>> 
+	    	switch opt {
+	          case "a":
+	            fmt.Println("chose a")
+	          case "t":
+	            fmt.Println(tip)
+	          case "s":
+	            fmt.Println("Saving Bill...")
+	          case "c" :
+	            fmt.Println("the current bill",b)
+	          default:
+	            fmt.Println("That was not a valid option")
+	      }
 
+# Tagless Switch statements
+>> when a switch statement does have a tage , the cases become booleans , if the confition meets than block of code within the case runs
+
+    	    	switch  {
+	          case a > 5: //example
+	            fmt.Println("chose a")
+	          case c == 1 :
+	            fmt.Println("the current bill",b)
+	          default:
+	            fmt.Println("That was not a valid option")
+	      }
 
 # Parsing floats or other datatypes
 >> converting stringified numbers into a float(decimal)
@@ -608,3 +643,46 @@ eg.
     func main (){
       //ready 
     }
+
+# fmt.Scan 
+The scan method allows user input , takes a pointer as an argument 
+the value entered from the user will than be assinged to the pointer address passed in 
+
+
+	package main
+	
+	import "fmt"
+	
+	func main() {
+	    var firstNumber, secondNumber int
+	
+	    // Prompt the user to enter two integers
+	    fmt.Print("Enter the first integer: ")
+	    // Use fmt.Scan to read the first integer from the user
+	    _, err1 := fmt.Scan(&firstNumber)
+	
+	    // Check for errors in scanning
+	    if err1 != nil {
+	        fmt.Println("Error:", err1)
+	        return
+	    }
+	
+	    fmt.Print("Enter the second integer: ")
+	    // Use fmt.Scan to read the second integer from the user
+	    _, err2 := fmt.Scan(&secondNumber)
+	
+	    // Check for errors in scanning
+	    if err2 != nil {
+	        fmt.Println("Error:", err2)
+	        return
+	    }
+	
+	    // Display the sum of the two integers
+	    sum := firstNumber + secondNumber
+	    fmt.Println("Sum:", sum)
+	}
+
+
+
+
+    
