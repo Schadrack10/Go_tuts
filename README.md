@@ -730,6 +730,7 @@ the value entered from the user will than be assinged to the pointer address pas
 	    fmt.Println("Sum:", sum)
 	}
 
+# Scan program 
 //Program with Scan function, this will prompt user to add an integer , we than add the user input into a list and sort the list
   this will be repeated until we eventually get an error and decide to break
 
