@@ -802,10 +802,83 @@ the value entered from the user will than be assinged to the pointer address pas
  UDP, and other network protocols. Additionally, the http package is commonly used for building web servers and clients, utilizing the HTTP protocol.
 eg. net/http
 
+# encoding/json
+
+In Go, the encoding/json package provides functions for marshaling (converting Go data structures to JSON) and unmarshaling (converting JSON to Go data structures). The primary functions involved are json.Marshal and json.Unmarshal. Let me provide you with a brief explanation and examples for both:
+
+# Marshal (Go to JSON):
+
+The json.Marshal function is used to convert a Go data structure to its JSON representation.
 
 
+	package main
+	
+	import (
+		"encoding/json"
+		"fmt"
+	)
+	
+	type Person struct {
+		Name  string `json:"name"`
+		Age   int    `json:"age"`
+		City  string `json:"city"`
+	}
+	
+	func main() {
+		person := Person{Name: "John", Age: 30, City: "New York"}
+	
+		// Marshal the struct to JSON
+		jsonData, err := json.Marshal(person)
+		if err != nil {
+			fmt.Println("Error:", err)
+			return
+		}
+	
+		// Print the JSON data
+		fmt.Println("JSON Data:", string(jsonData))
+	}
 
+ In this example, the Person struct is marshaled to JSON using json.Marshal, and the resulting JSON data is printed.
 
- 
+# Unmarshal (JSON to Go):
+
+The json.Unmarshal function is used to convert JSON data into a Go data structure.
+
+	package main
+	
+	import (
+		"encoding/json"
+		"fmt"
+	)
+	
+	type Person struct {
+		Name  string `json:"name"`
+		Age   int    `json:"age"`
+		City  string `json:"city"`
+	}
+	
+	func main() {
+		// JSON data
+		jsonData := `{"name":"Alice","age":25,"city":"London"}`
+	
+		// Create a Person struct
+		var person Person
+	
+		// Unmarshal JSON data into the struct
+		err := json.Unmarshal([]byte(jsonData), &person)
+		if err != nil {
+			fmt.Println("Error:", err)
+			return
+		}
+	
+		// Print the Go data structure
+		fmt.Println("Name:", person.Name)
+		fmt.Println("Age:", person.Age)
+		fmt.Println("City:", person.City)
+	}
+
+ In this example, JSON data is unmarshaled into a Person struct using json.Unmarshal, and the fields of the struct are printed.
+
+Both json.Marshal and json.Unmarshal work with slices, maps, and other custom data structures as well. The json package in Go provides additional features and options for handling JSON data, including support for custom marshaling and unmarshaling logic.
 
     
