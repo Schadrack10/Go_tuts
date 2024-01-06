@@ -732,44 +732,69 @@ the value entered from the user will than be assinged to the pointer address pas
 
 # Scan program 
 //Program with Scan function, this will prompt user to add an integer , we than add the user input into a list and sort the list
-  this will be repeated until we eventually get an error and decide to break
+  this will be repeated until we enter x than the program will exit
 
-		package main
-		
-		import (
-			"fmt"
-			"sort"
-		)
-		
-		func PromptUser() (int, error) {
-			var val int
-		
-			fmt.Print("Please enter an integer: ")
-		
-			_, err := fmt.Scan(&val)
-		
-			return val, err
+	package main
+	
+	import (
+		"fmt"
+		"sort"
+		"strings"
+		"strconv"
+	)
+	
+	func PromptUser() (int,error) {
+		var val string
+	
+		fmt.Print("Please enter an integer: ")
+	
+		_, errScan := fmt.Scan(&val)
+	
+	
+		input, errConv := strconv.Atoi(val)
+	
+	
+		if errConv != nil {
+	
+			if strings.ToLower(val) == "x"{
+		        return 1,errConv
+			}
+	
+			return 0,errConv
 		}
-		
-		func main() {
-			var list []int
-		
-			for {
-				val, err := PromptUser()
-		
-				if err != nil {
-					fmt.Printf("Error: %v , because the value entered is %v \n", err,val)
+	
+		return input, errScan
+	}
+	
+	func main() {
+	
+		const initCap = 3
+		list := make([]int, 0, initCap)
+	
+		for {
+			val, err := PromptUser()
+	
+	
+			if err != nil {
+	             
+				if val == 1 {
+					fmt.Println("Exit program... because you have entered x")
 					break
 				}
-		
-				list = append(list, val)
-		
-				// Sorting the slice after each input
-				sort.Ints(list)
-		
-				fmt.Println("Sorted slice:", list)
+	
+				fmt.Printf("Please Enter a valid integer")
+	
+				continue
 			}
+	
+	
+			list = append(list, val)
+	
+			sort.Ints(list)
+	
+			fmt.Println("data:", list)
 		}
+	}
 
 
 
