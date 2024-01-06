@@ -796,6 +796,16 @@ the value entered from the user will than be assinged to the pointer address pas
 		}
 	}
 
+# Protocol Packages
 
+ In Go, the standard library includes the net package, which provides support for working with network protocols. It includes facilities for working with TCP, 
+ UDP, and other network protocols. Additionally, the http package is commonly used for building web servers and clients, utilizing the HTTP protocol.
+eg. net/http
+
+
+
+
+
+ 
 
     
