@@ -160,6 +160,10 @@ the iota will automatically assing to the other variable within the constant
 
 # Control flow
  the order in which statemnets are executed within a program
+
+# Hash Table
+ Hash function 
+
   
 # Arrays and slices
 
@@ -189,6 +193,12 @@ len(name_of_array)
       rangeTwo := names[:3] >> this will extract everything from start and finish to pos 3 , it will not include position 3
       fmt.Println(rangeOne) // [30,40]  output for ages, note that we exclude position 3
 
+// we can use a constructor to create a slice, we can use the make() function
+  this will take in two arguments :
+  .1 when we have two arguments we expect the datatype and the legnth of the slice , if there are 3 args the third will specify the capacity
+
+       sli  = make([]int,10,15)
+        sli  = make(type,length,capacity)
 
 # standard Library :https://golang.org/pkg/
 packages that allows us to add methods to manipulate data
@@ -324,6 +334,14 @@ eg. meny[23324] = "Todd" //modifies the key's value
 func updateValue (y map[string]float64){ //code}
 
 
+//We could also delete data from a map 
+var mapVar =  map[string]float64{"amount":23.78,"deposited":22.32}
+delete(mapVar,"deposited")
+
+//one of the ways to check the existance of a key in a map
+
+
+
 # By Pass value
 -Go is a by-passed value language , meaning it makes copies of values when passed into functions
 -When passing down a variable as a parameter in a function and attemtping to modify the variable , we only modify the copy and not the original variable
@@ -380,6 +398,36 @@ eg. type and struct are keywords required , we do not add comma when creating th
         return b
     }
     
+// after creating  a struct assignment can vary 
+
+1. variable : we initialise with the person type , just like we would add a datatype next to the variable eg. var p1 int
+   now p1 can only contain the fields specified in the person struct , we do not use bracket but only dot notation
+
+         type person struct {
+	      name  string
+	      age   int
+	      addr  string
+	      phone string
+         }
+
+         var p1 person
+   //using dot notation to add data to person type variable
+
+
+         p1.age = 20
+         p1.name = "Steven"
+
+// we cannot add fields that are not defined in the 
+
+	 p1.race = ""  //error because we do not have race defined within the people struct
+
+2. using a list from a struct, the type is now people , it simply replaces the type and we add people
+
+
+         var people = []people{ {name:"",age:0 ,addr:"",phone:""}}
+
+        
+3. 
 
 # Receiver functions
 >> receiver functions allows us to take in data into the function inorder to create a method
@@ -682,6 +730,45 @@ the value entered from the user will than be assinged to the pointer address pas
 	    fmt.Println("Sum:", sum)
 	}
 
+//Program with Scan function, this will prompt user to add an integer , we than add the user input into a list and sort the list
+  this will be repeated until we eventually get an error and decide to break
+
+		package main
+		
+		import (
+			"fmt"
+			"sort"
+		)
+		
+		func PromptUser() (int, error) {
+			var val int
+		
+			fmt.Print("Please enter an integer: ")
+		
+			_, err := fmt.Scan(&val)
+		
+			return val, err
+		}
+		
+		func main() {
+			var list []int
+		
+			for {
+				val, err := PromptUser()
+		
+				if err != nil {
+					fmt.Printf("Error: %v , because the value entered is %v \n", err,val)
+					break
+				}
+		
+				list = append(list, val)
+		
+				// Sorting the slice after each input
+				sort.Ints(list)
+		
+				fmt.Println("Sorted slice:", list)
+			}
+		}
 
 
 
