@@ -200,7 +200,11 @@ len(name_of_array)
   .1 when we have two arguments we expect the datatype and the legnth of the slice , if there are 3 args the third will specify the capacity
 
        sli  = make([]int,10,15)
-        sli  = make(type,length,capacity)
+       sli  = make(type,length,capacity)
+
+       person := make(map[string]string) // construct a map
+
+        
 
 # standard Library :https://golang.org/pkg/
 packages that allows us to add methods to manipulate data
