@@ -192,6 +192,8 @@ len(name_of_array)
       rangeTwo := names[2:] >> this will extract everything from position 2 to the end of the slice
       rangeTwo := names[:3] >> this will extract everything from start and finish to pos 3 , it will not include position 3
       fmt.Println(rangeOne) // [30,40]  output for ages, note that we exclude position 3
+      
+# make() constructor
 
 // we can use a constructor to create a slice, we can use the make() function
   this will take in two arguments :
@@ -879,6 +881,17 @@ The json.Unmarshal function is used to convert JSON data into a Go data structur
 
  In this example, JSON data is unmarshaled into a Person struct using json.Unmarshal, and the fields of the struct are printed.
 
-Both json.Marshal and json.Unmarshal work with slices, maps, and other custom data structures as well. The json package in Go provides additional features and options for handling JSON data, including support for custom marshaling and unmarshaling logic.
+Both json.Marshal and json.Unmarshal work with slices, maps, and other custom data structures as well. The json package in Go provides additional features
+and options for handling JSON data, including support for custom marshaling and unmarshaling logic.
+
+
+
+# File access
+
+1.OS package File access
+
+
+
+
 
     
