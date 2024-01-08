@@ -894,6 +894,115 @@ and options for handling JSON data, including support for custom marshaling and 
 
 1.OS package File access
 
+In Go, the os package provides functionalities for interacting with the operating system, including file access.
+Below are some common operations related to file access using the os package:
+
+# Opening a File:
+
+To open a file, you can use the os.Open function. It returns a *os.File that can be used for reading or writing.
+
+	package main
+	
+	import (
+	    "fmt"
+	    "os"
+	)
+	
+	func main() {
+	    // Open a file for reading
+	    file, err := os.Open("example.txt")
+	    if err != nil {
+	        fmt.Println("Error opening file:", err)
+	        return
+	    }
+	    defer file.Close()
+	
+	    // Read or write operations can be performed using the 'file' variable
+	}
+
+# Reading from a File:
+
+You can use a *os.File to read data from a file. For example, you can use a bufio.Scanner to read line by line:
+
+        package main
+
+	import (
+	    "bufio"
+	    "fmt"
+	    "os"
+	)
+	
+	func main() {
+	    file, err := os.Open("example.txt")
+	    if err != nil {
+	        fmt.Println("Error opening file:", err)
+	        return
+	    }
+	    defer file.Close()
+	
+	    scanner := bufio.NewScanner(file)
+	    for scanner.Scan() {
+	        line := scanner.Text()
+	        fmt.Println(line)
+	    }
+	
+	    if err := scanner.Err(); err != nil {
+	        fmt.Println("Error reading file:", err)
+	    }
+	}
+
+
+
+# Writing to a File:
+
+To write data to a file, you can use a *os.File with a bufio.Writer or fmt.Fprint:
+
+	package main
+	
+	import (
+	    "fmt"
+	    "os"
+	)
+	
+	func main() {
+	    file, err := os.Create("output.txt")
+	    if err != nil {
+	        fmt.Println("Error creating file:", err)
+	        return
+	    }
+	    defer file.Close()
+	
+	    data := "Hello, Golang!"
+	    _, err = fmt.Fprint(file, data)
+	    if err != nil {
+	        fmt.Println("Error writing to file:", err)
+	        return
+	    }
+	}
+
+# Checking if a File Exists:
+
+To check if a file exists, you can use the os.Stat function:
+
+	package main
+	
+	import (
+	    "fmt"
+	    "os"
+	)
+	
+	func main() {
+	    _, err := os.Stat("example.txt")
+	    if err != nil {
+	        if os.IsNotExist(err) {
+	            fmt.Println("File does not exist")
+	        } else {
+	            fmt.Println("Error checking file:", err)
+	        }
+	        return
+	    }
+	    fmt.Println("File exists")
+	}
 
 
 
