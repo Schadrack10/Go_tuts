@@ -208,22 +208,44 @@ len(name_of_array)
 
 # standard Library :https://golang.org/pkg/
 packages that allows us to add methods to manipulate data
-eg.fmt, strings , sort
+# fmt, strings , sort
 
 strings  eg. greet:= "Hello world!!"
->> Contains >> search for a word in a string eg. strings.Contains(greet,"hello")
->> TrimSpace >> removes spaces around the string eg. strings.TrimSpace(greet)
->> ReplaceAll >> replace a word in a string  eg. strings.ReplaceAll(greet,"hello","Hii")
->> ToUpper >> converts the string to upperCase eg. strings.ToUpper(greet)
->> ToLower >> converts the strings to small case eg. strings.ToLower(greet)
->> Index >> retrieves the position of a word in a string , the first occurence eg. strings.Index(greet,"w") //6 
->> Split >> split the word into an array, the second parameter determines how we want to spli the string into the array   eg. strings.Split(greet," ") 
-
+>> Contains >> search for a word in a string eg.
+>>
+>>     strings.Contains(greet,"hello")
+>> TrimSpace >> removes spaces around the string eg.
+>>
+>>     strings.TrimSpace(greet)
+>> ReplaceAll >> replace a word in a string  eg.
+>>
+>>     strings.ReplaceAll(greet,"hello","Hii")
+>> ToUpper >> converts the string to upperCase eg.
+>>
+>>     strings.ToUpper(greet)
+>> ToLower >> converts the strings to small case eg.
+>>
+>>     strings.ToLower(greet)
+>> Index >> retrieves the position of a word in a string , the first occurence eg.
+>>
+>>     strings.Index(greet,"w") //6 
+>> Split >> split the word into an array, the second parameter determines how we want to spli the string into the array   eg.
+>>
+>>     strings.Split(greet," ")
+>> 
 sort eg. ages := []int{20,30,50.60,90}
->> Ints >> sorts the order of the integers in an array eg.sort.Ints(ages) //this will modify the actual variable
->> SearchInts >> this will find the position of the interger in an array  eg. sort.SearchInts(ages,30) // 1
->> Strings >> this method is used to sort strings alphabetically eg. sort.Strings(names) // ["andy","Betty","carl"]
->> SearchStrings >> this method allos us to search for a word in an array of strings eg.sort.SearchStrings()
+>> Ints >> sorts the order of the integers in an array eg.
+>>
+>>     sort.Ints(ages) //this will modify the actual variable
+>> SearchInts >> this will find the position of the interger in an array  eg.
+>>
+>>     sort.SearchInts(ages,30) // 1
+>> Strings >> this method is used to sort strings alphabetically eg.
+>>
+>>     sort.Strings(names) // ["andy","Betty","carl"]
+>> SearchStrings >> this method allos us to search for a word in an array of strings eg.
+>>
+>>     sort.SearchStrings()
 
 # Loops 
 >>used to iterate through an array or a slice 
