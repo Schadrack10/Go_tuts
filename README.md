@@ -68,6 +68,14 @@ D>> fmt.printf(my age is %f", age )  >> replaces the specifier with the variable
 4.Sprintf() : saves and returns the formatted strings
     var str =  fmt.Sprintf("my age is %v and my name is %v", age , name) >> string stored in variable
 
+# Log > package
+
+consist of methods similar to the fmt package , we get access to format specifiers and more
+
+		log.fatal()
+		log.println()
+		log.printf()
+
 
 # Type conversion
 
