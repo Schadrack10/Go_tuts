@@ -50,7 +50,7 @@ Go's syntax is intentionally simple and easy to read. It lacks some of the compl
     score := 1.5 >> go reads and understands that this a float
 
 
-# fmt > module used for formatting and printing strings
+# fmt > module used for formatting and printing data
 
 1.Println() : logs data and prints a new line
 eg. fmt.Println()
@@ -68,13 +68,13 @@ D>> fmt.printf(my age is %f", age )  >> replaces the specifier with the variable
 4.Sprintf() : saves and returns the formatted strings
     var str =  fmt.Sprintf("my age is %v and my name is %v", age , name) >> string stored in variable
 
-# Log > package
+# Log > package used for formatting and printing data
 
 consist of methods similar to the fmt package , we get access to format specifiers and more
 
-		log.fatal()
-		log.println()
-		log.printf()
+	log.fatal()
+	log.println()
+	log.printf()
 
 
 # Type conversion
