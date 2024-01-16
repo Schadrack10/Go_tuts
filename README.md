@@ -71,10 +71,14 @@ D>> fmt.printf(my age is %f", age )  >> replaces the specifier with the variable
 # Log > package used for formatting and printing data
 
 consist of methods similar to the fmt package , we get access to format specifiers and more
+note: log will prit with exact times and data of the logs [2024/01/17 00:07:49]
 
-	log.fatal()
-	log.println()
-	log.printf()
+	log.fatal()  //print error
+	log.println() // print in a new line
+	log.printf()  // print  variable with format specifiers
+
+ example:
+   -2024/01/16 23:41:24 data printed
 
 
 # Type conversion
