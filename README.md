@@ -1038,7 +1038,14 @@ To check if a file exists, you can use the os.Stat function:
 	    fmt.Println("File exists")
 	}
 
+# Debbug golang code VScode
+     
+  example of directory:
+  cd /Users/schadrackbotombe/Documents/Dev/Development/Server-side/golang/test-golang
 
+     go mod init test-golang 
 
+     go build -o
 
+      go help build
     
