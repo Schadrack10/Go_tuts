@@ -335,6 +335,69 @@ func add_sub (n [] int)(int, int){
       return val1 ,val2  
     }
 
+//Variables as functions
+eg,
+
+	var myFunction func(int , int)int;
+   
+	  myFunction = func(x , m int) int {
+	    return x + m
+	  }
+
+	  fmt.Println(myFunction(5,7))
+
+
+//functions as arguments
+eg.
+	
+ 	package main
+	
+	import (
+		"fmt"
+	)
+	
+	func convertValue(val string) string{
+	    res := fmt.Sprintf("Hiiii %v",val);
+	
+	    return res
+	}
+	
+	func greet(newFunc func(string) string, name string) string{
+	
+	  res := newFunc(name)
+	
+	   return res
+	}
+	
+	
+	func main() {
+	   
+	  fmt.Println(greet(convertValue,"paul"))
+	}
+
+//Anonymous functions
+
+	package main
+	
+	import (
+		"fmt"
+	)
+	
+	func greet(newFunc func(string) string, name string) string{
+	
+	  res := newFunc("hii " + name)
+	
+	   return res
+	}
+	
+	func main() {
+	
+	  v := greet(func(x string)string{return x},"terrance")
+	
+	  fmt.Println(v)
+	}
+
+
 
 # Package scope
 We can link two different files by specifying the same package
