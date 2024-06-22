@@ -397,6 +397,32 @@ eg.
 	  fmt.Println(v)
 	}
 
+//returning functions in a function
+
+	package main
+	
+	import (
+		"fmt"
+	)
+	
+	
+	func callBack(num,num2 int) func(int,int)int{
+	
+	      x := func(z int, m int) int{
+	           return  z + m * num + num2
+	      }
+	
+	      return x
+	}
+	
+	
+	func main() {
+	
+	  x := callBack(4,6);
+	
+	  fmt.Println(x(2,4))
+	}
+
 
 
 # Package scope
