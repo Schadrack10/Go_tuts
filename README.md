@@ -422,7 +422,39 @@ eg.
 	
 	  fmt.Println(x(2,4))
 	}
+ 
+## Variadic slice arguments
+//passing multiple arguments to a function
 
+	func getMax(vals ...int) int {
+	    max := 0
+	    fmt.Println(vals);
+	
+	    for _, val := range vals {
+	        if val > max {
+	            max = val
+	        }
+	    }
+	    return max
+	}
+## Defer function calls
+ //asynchronous function , runs after code is 
+  use the defer keyword to make the function asynchronous , runs after all the function or process have ran 
+
+	package main
+	
+	import (
+	   "fmt"
+	)
+	
+	
+	func main() {
+	
+	  defer fmt.Println("Hello, ��界")
+	  fmt.Println("Hii, ��界")
+	
+	}
+note :  defer will make Hii print first , than Hello will run after
 
 
 # Package scope
